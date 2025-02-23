@@ -11,7 +11,7 @@ export async function GET(req) {
     if (!decoded || decoded.role !== "ADMIN") { 
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
-
+    
     // Get all users (both verified and unverified)
     const users = await prisma.user.findMany({
       where: {
